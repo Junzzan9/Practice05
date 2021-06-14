@@ -1,72 +1,57 @@
 package com.javaex.ex10;
 
 public class Book {
-	
-	public static int number;
-	public static String name;
-	public static String writer;
-	public static boolean rent;
-	
-	
-	public Book(int no,String n,String w) {
-		this.number=no;
-		this.name=n;
-		this.writer=w;
-		
-	}
-	public Book() {
-		
-	}
-	
-	public static boolean isRent() {
-		return rent;
-	}
-	public static void setRent(boolean rent) {
-		Book.rent = rent;
-	}
-	public static int getNumber() {
-		return number;
-	}
+    private int bookNo;
+    private String title;
+    private String author;
+    private int stateCode;
 
-	public static void setNumber(int number) {
-		Book.number = number;
-	}
-
-	public static String getName() {
-		return name;
-	}
-
-	public static void setName(String name) {
-		Book.name = name;
-	}
-
-	public static String getWriter() {
-		return writer;
-	}
-
-	public static void setWriter(String writer) {
-		Book.writer = writer;
-	}
-
+    public Book(){}
     
-	public static void displayBookInfo(Book[] a) {
-		for(int i=0;i<=9;i++) {
-			Book b = new Book();
-			b=a[i];
-			System.out.print(number+1+"책 제목:"+name+" 작가: "+writer+" 재고:");
-			if(rent==true) {
-				System.out.println(" 재고있음.");
-			}
-			else {
-				System.out.println(" 재고없음.");
-			}
-		}
-	}
-	public static void rent(Book[] a) {
-		
-	}
-    
-    
-    
-    
+    public Book(int bookNo, String title, String author) {
+        this.bookNo = bookNo;
+        this.author = author;
+        this.title = title;
+        this.stateCode = 1;
+    }
+
+    public void rent() {
+        stateCode = 0;
+        System.out.println(title + "이(가) 대여 됐습니다.");
+    }
+
+    public void print() {
+    	String rent;
+    	if( stateCode == 1 ) {
+    		rent = "재고있음";
+    	}else {
+    		rent = "대여중";
+    	}
+        System.out.println(bookNo + " 책 제목:" + title + ", 작가:" + author + ", 대여 유무:" + rent);
+    }
+
+    public int getBookNo() {
+        return bookNo;
+    }
+
+    public void setBookNo(int bookNo) {
+        this.bookNo = bookNo;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
 }
